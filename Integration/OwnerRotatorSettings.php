@@ -24,7 +24,7 @@ class OwnerRotatorSettings
     /**
      * @var array
      */
-    private $settings;
+    private $settings = [];
 
     /**
      * DolistSettings constructor.

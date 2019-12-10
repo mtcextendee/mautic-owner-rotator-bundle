@@ -13,7 +13,8 @@ This plugin allow assign owner in random rotation after assign to certain owner.
 
 ### Usage
 
-1. Go to plugins and set 
+1. Go to plugins and setup Owner Rotator
+2. Change  the contat owner and see If was changed based on your rules
 
 ## More Mautic stuff
 
