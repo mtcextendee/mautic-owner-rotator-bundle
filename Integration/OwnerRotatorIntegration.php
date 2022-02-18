@@ -55,7 +55,7 @@ class OwnerRotatorIntegration extends AbstractIntegration
                 'owner',
                 UserListType::class,
                 [
-                    'label'      => 'mautic.report.report.form.owner',
+                    'label'      => 'mautic.ownerrotator.form.from.owner',
                     'label_attr' => ['class' => 'control-label'],
                     'attr'       => [
                         'class' => 'form-control',
@@ -69,7 +69,7 @@ class OwnerRotatorIntegration extends AbstractIntegration
                 'owners',
                 UserListType::class,
                 [
-                    'label'      => 'mautic.ownerrotator.form.owners',
+                    'label'      => 'mautic.ownerrotator.form.to.owners',
                     'label_attr' => ['class' => 'control-label'],
                     'attr'       => [
                         'class' => 'form-control',

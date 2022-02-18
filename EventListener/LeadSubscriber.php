@@ -11,14 +11,14 @@
 
 namespace MauticPlugin\MauticOwnerRotatorBundle\EventListener;
 
-use Mautic\CoreBundle\EventListener\CommonSubscriber;
 use Mautic\CoreBundle\Model\NotificationModel;
 use Mautic\LeadBundle\Event\LeadEvent;
 use Mautic\LeadBundle\LeadEvents;
 use Mautic\UserBundle\Model\UserModel;
 use MauticPlugin\MauticOwnerRotatorBundle\Integration\OwnerRotatorSettings;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class LeadSubscriber extends CommonSubscriber
+class LeadSubscriber implements EventSubscriberInterface
 {
 
     /**
@@ -74,24 +74,6 @@ class LeadSubscriber extends CommonSubscriber
             $owner = reset($owners);
             if ($ownerEntity = $this->userModel->getEntity($owner)) {
                 $lead->setOwner($ownerEntity);
-             /*   $this->notificationModel->addNotification(
-                    '',
-                    'info',
-                    false,
-                    $this->translator->trans(
-                        'mautic.ownerrotator.owner.assign',
-                        [
-                            '%owner%' => $ownerEntity->getName().' '.$ownerEntity->getLastName(),
-                            '%contact%' => '<a href="'.$this->router->generate(
-                                    'mautic_contact_action',
-                                    ['objectAction' => 'view', 'objectId' => $lead->getId()]
-                                ).'" data-toggle="ajax">'.$lead->getPrimaryIdentifier().'</a>',
-                        ]
-                    ),
-                    null,
-                    null,
-                    $lead && $lead->getOwner() ? $lead->getOwner() : $this->userModel->getSystemAdministrator()
-                );*/
             }
         }
 
