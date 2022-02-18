@@ -1,0 +1,15 @@
+{
+  "name": "mtcextendee/mautic-owner-rotator-bundle",
+  "description": "Add random owner to contact",
+  "type": "mautic-plugin",
+  "version": "1.0",
+  "keywords": ["mautic","plugin"],
+  "extra": {
+    "install-directory-name": "MauticOwnerRotatorBundle"
+  },
+  "require": {
+    "php": ">=7.4.0 <8.1",
+    "ext-zip": "^1.15",
+    "mautic/core-lib": "^4.0"
+  }
+}
