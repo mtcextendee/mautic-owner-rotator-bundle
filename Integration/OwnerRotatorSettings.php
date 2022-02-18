@@ -13,7 +13,6 @@ use Mautic\PluginBundle\Helper\IntegrationHelper;
 
 class OwnerRotatorSettings
 {
-
     /**
      * @var bool|\Mautic\PluginBundle\Integration\AbstractIntegration
      */
@@ -28,8 +27,6 @@ class OwnerRotatorSettings
 
     /**
      * DolistSettings constructor.
-     *
-     * @param IntegrationHelper $integrationHelper
      */
     public function __construct(IntegrationHelper $integrationHelper)
     {
@@ -37,7 +34,7 @@ class OwnerRotatorSettings
         if ($this->integration instanceof OwnerRotatorIntegration && $this->integration->getIntegrationSettings(
             )->getIsPublished()) {
             $this->settings = $this->integration->mergeConfigToFeatureSettings();
-            $this->enabled = true;
+            $this->enabled  = true;
         }
     }
 
@@ -64,6 +61,4 @@ class OwnerRotatorSettings
     {
         return ArrayHelper::getValue('owners', $this->settings, []);
     }
-
-
 }

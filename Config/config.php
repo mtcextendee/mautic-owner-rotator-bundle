@@ -16,15 +16,13 @@ return [
                 'arguments' => [
                     'mautic.ownerrotator.integration.settings',
                     'mautic.user.model.user',
-                    'mautic.core.model.notification'
+                    'mautic.core.model.notification',
                 ],
             ],
-
         ],
         'forms'        => [
         ],
         'models'       => [
-
         ],
         'integrations' => [
             'mautic.integration.ownerrotator' => [
@@ -61,7 +59,6 @@ return [
         'controllers'  => [
         ],
         'commands'     => [
-
         ],
     ],
     'parameters' => [

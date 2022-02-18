@@ -20,7 +20,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class LeadSubscriber implements EventSubscriberInterface
 {
-
     /**
      * @var OwnerRotatorSettings
      */
@@ -38,16 +37,12 @@ class LeadSubscriber implements EventSubscriberInterface
 
     /**
      * LeadSubscriber constructor.
-     *
-     * @param OwnerRotatorSettings $ownerRotatorSettings
-     * @param UserModel            $userModel
-     * @param NotificationModel    $notificationModel
      */
     public function __construct(OwnerRotatorSettings $ownerRotatorSettings, UserModel $userModel, NotificationModel $notificationModel)
     {
         $this->ownerRotatorSettings = $ownerRotatorSettings;
-        $this->userModel = $userModel;
-        $this->notificationModel = $notificationModel;
+        $this->userModel            = $userModel;
+        $this->notificationModel    = $notificationModel;
     }
 
     /**
@@ -60,10 +55,6 @@ class LeadSubscriber implements EventSubscriberInterface
         ];
     }
 
-
-    /**
-     * @param LeadEvent $event
-     */
     public function onLeadPreSave(LeadEvent $event)
     {
         $lead = $event->getLead();
@@ -76,7 +67,5 @@ class LeadSubscriber implements EventSubscriberInterface
                 $lead->setOwner($ownerEntity);
             }
         }
-
     }
-
 }

@@ -12,7 +12,6 @@ use Mautic\PluginBundle\Integration\AbstractIntegration;
 use Mautic\UserBundle\Form\Type\UserListType;
 use Symfony\Component\Form\FormBuilder;
 
-
 class OwnerRotatorIntegration extends AbstractIntegration
 {
     const INTEGRATION_NAME = 'OwnerRotator';
@@ -50,7 +49,7 @@ class OwnerRotatorIntegration extends AbstractIntegration
      */
     public function appendToForm(&$builder, $data, $formArea)
     {
-        if ($formArea == 'features') {
+        if ('features' == $formArea) {
             $builder->add(
                 'owner',
                 UserListType::class,
