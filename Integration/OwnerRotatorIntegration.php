@@ -16,28 +16,28 @@ class OwnerRotatorIntegration extends AbstractIntegration
 {
     const INTEGRATION_NAME = 'OwnerRotator';
 
-    public function getName()
+    public function getName(): string
     {
         return self::INTEGRATION_NAME;
     }
 
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return 'Owner Rotator';
     }
 
-    public function getAuthenticationType()
+    public function getAuthenticationType(): string
     {
         return 'none';
     }
 
-    public function getRequiredKeyFields()
+    public function getRequiredKeyFields(): array
     {
         return [
         ];
     }
 
-    public function getIcon()
+    public function getIcon(): string
     {
         return 'plugins/MauticOwnerRotatorBundle/Assets/img/icon.png';
     }
@@ -47,7 +47,7 @@ class OwnerRotatorIntegration extends AbstractIntegration
      * @param array                                             $data
      * @param string                                            $formArea
      */
-    public function appendToForm(&$builder, $data, $formArea)
+    public function appendToForm(&$builder, $data, $formArea): void
     {
         if ('features' == $formArea) {
             $builder->add(

@@ -20,42 +20,27 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class LeadSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var OwnerRotatorSettings
-     */
-    private $ownerRotatorSettings;
+    private \MauticPlugin\MauticOwnerRotatorBundle\Integration\OwnerRotatorSettings $ownerRotatorSettings;
 
-    /**
-     * @var UserModel
-     */
-    private $userModel;
-
-    /**
-     * @var NotificationModel
-     */
-    private $notificationModel;
+    private \Mautic\UserBundle\Model\UserModel $userModel;
 
     /**
      * LeadSubscriber constructor.
      */
-    public function __construct(OwnerRotatorSettings $ownerRotatorSettings, UserModel $userModel, NotificationModel $notificationModel)
+    public function __construct(OwnerRotatorSettings $ownerRotatorSettings, UserModel $userModel)
     {
         $this->ownerRotatorSettings = $ownerRotatorSettings;
         $this->userModel            = $userModel;
-        $this->notificationModel    = $notificationModel;
     }
 
-    /**
-     * @return array
-     */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             LeadEvents::LEAD_PRE_SAVE => ['onLeadPreSave', 0],
         ];
     }
 
-    public function onLeadPreSave(LeadEvent $event)
+    public function onLeadPreSave(LeadEvent $event): void
     {
         $lead = $event->getLead();
 

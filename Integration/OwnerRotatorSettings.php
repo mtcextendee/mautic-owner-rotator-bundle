@@ -18,12 +18,9 @@ class OwnerRotatorSettings
      */
     private $integration;
 
-    private $enabled = false;
+    private bool $enabled = false;
 
-    /**
-     * @var array
-     */
-    private $settings = [];
+    private array $settings = [];
 
     /**
      * DolistSettings constructor.
@@ -38,26 +35,17 @@ class OwnerRotatorSettings
         }
     }
 
-    /**
-     * @return bool
-     */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @return int
-     */
-    public function getOwnerForMakeRotation()
+    public function getOwnerForMakeRotation(): int
     {
         return ArrayHelper::getValue('owner', $this->settings, null);
     }
 
-    /**
-     * @return array
-     */
-    public function getOwnersForRotation()
+    public function getOwnersForRotation(): array
     {
         return ArrayHelper::getValue('owners', $this->settings, []);
     }
