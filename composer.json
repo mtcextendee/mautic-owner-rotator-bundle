@@ -1,6 +1,6 @@
 {
   "name": "mtcextendee/mautic-owner-rotator-bundle",
-  "description": "Add random owner to contact",
+  "description": "Random owner assigment",
   "type": "mautic-plugin",
   "version": "1.0",
   "keywords": ["mautic","plugin"],

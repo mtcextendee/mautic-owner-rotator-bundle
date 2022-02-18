@@ -1,8 +1,10 @@
 # Mautic Owner Rotator for Mautic
 
-This plugin allow assign owner in random rotation after assign to certain owner.  
+This plugin allows assign owner in random rotation after assign to certain owner.  
 
 ## Installation
+
+### One click with marketplace
 
 ### Manual
 
@@ -14,12 +16,14 @@ This plugin allow assign owner in random rotation after assign to certain owner.
 ### Usage
 
 1. Go to plugins and setup Owner Rotator
-2. Change  the contat owner and see If was changed based on your rules
+2. Change contact owner and see If was assigned  to contact owner randomly based on your plugin settings
+
+![image](https://user-images.githubusercontent.com/462477/154751621-6c2fa50a-34a9-42ff-a76c-f963c6af70f3.png)
+
 
 ## More Mautic stuff
 
-- Plugins from Mautic Extendee Family  https://mtcextendee.com/plugins
-- Mautic themes https://mtcextendee.com/themes
+- https://mtcextendee.com
 
 ### Credits
 
