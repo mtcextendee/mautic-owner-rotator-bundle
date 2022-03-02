@@ -20,33 +20,44 @@ class OwnerRotatorSettings
 
     private bool $enabled = false;
 
+    private IntegrationHelper $integrationHelper;
+
     private array $settings = [];
 
-    /**
-     * DolistSettings constructor.
-     */
     public function __construct(IntegrationHelper $integrationHelper)
     {
-        $this->integration = $integrationHelper->getIntegrationObject('OwnerRotator');
-        if ($this->integration instanceof OwnerRotatorIntegration && $this->integration->getIntegrationSettings(
-            )->getIsPublished()) {
-            $this->settings = $this->integration->mergeConfigToFeatureSettings();
-            $this->enabled  = true;
+        $this->integrationHelper = $integrationHelper;
+    }
+
+    private function init(): void
+    {
+        if (null === $this->integration) {
+            $this->integration = $this->integrationHelper->getIntegrationObject('OwnerRotator');
+            if ($this->integration instanceof OwnerRotatorIntegration && $this->integration->getIntegrationSettings()->getIsPublished()) {
+                $this->settings = $this->integration->mergeConfigToFeatureSettings();
+                $this->enabled  = true;
+            }
         }
     }
 
     public function isEnabled(): bool
     {
+        $this->init();
+
         return $this->enabled;
     }
 
-    public function getOwnerForMakeRotation(): int
+    public function getOwnerForMakeRotation(): ?int
     {
-        return ArrayHelper::getValue('owner', $this->settings, null);
+        $this->init();
+
+        return ArrayHelper::getValue('owner', $this->settings);
     }
 
     public function getOwnersForRotation(): array
     {
+        $this->init();
+
         return ArrayHelper::getValue('owners', $this->settings, []);
     }
 }
